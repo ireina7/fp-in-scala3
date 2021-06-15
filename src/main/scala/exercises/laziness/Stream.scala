@@ -37,7 +37,9 @@ extension [A](s: Stream[A]) {
     case Cons(_, t) if n > 0 => t().drop(n - 1)
     case _ => s
 
-  def takeWhile(f: A => Boolean): Stream[A] = ???
+  def takeWhile(f: A => Boolean): Stream[A] = s match
+    case Cons(x, xs) if f(x()) => xs().takeWhile(f)
+    case _ => s
 
   def exists(p: A => Boolean): Boolean = s match
     case Cons(x, xs) => p(x()) || xs().exists(p)
@@ -47,7 +49,25 @@ extension [A](s: Stream[A]) {
     case Cons(x, xs) => f(x(), xs().foldRight(z)(f))
     case _ => z
 
-  def forAll(p: A => Boolean): Boolean = ???
+  def forAll(p: A => Boolean): Boolean = s match
+    case Empty => true
+    case Cons(x, xs) if p(x()) => xs().forAll(p)
+    case _ => false
+
+  def map[B](f: A => B): Stream[B] = s match
+    case Empty => Empty
+    case Cons(x, xs) => cons(f(x()), xs().map(f))
+
+  def filter(f: A => Boolean): Stream[A] = s match
+    case Empty => Empty
+    case Cons(x, xs) if f(x()) => cons(x(), xs().filter(f))
+    case Cons(_, xs) => xs().filter(f)
+
+  def append[B >: A](ss: => Stream[B]): Stream[B] = 
+    foldRight(ss)((x, xs) => cons(x, xs))
+
+  def flatMap[B](f: A => Stream[B]): Stream[B] = 
+    foldRight(empty[B])((h, t) => f(h) append t)
 }
 
 
