@@ -1,6 +1,6 @@
 package fp
 
-import simulacrum.typeclass
+//import simulacrum.typeclass
 
 
 @main def main: Unit = 
