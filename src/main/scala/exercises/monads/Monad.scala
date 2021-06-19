@@ -18,3 +18,7 @@ trait Monad[F[_]](using ev: Applicative[F]) extends Applicative[F]:
     def flatMap[B](f: A => F[B]): F[B]
     def <*>[B](f: F[A => B]): F[B] = ev.<*>(fa)(f)
 
+
+
+
+

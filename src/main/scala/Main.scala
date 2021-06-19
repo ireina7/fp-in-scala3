@@ -1,13 +1,27 @@
 package fp
 
+import simulacrum.typeclass
+
+
 @main def main: Unit = 
   println("Hello! This the functional world of Scala3.")
+
   // exercises
-  exercises.gettingstarted.MyModule.test()
-  exercises.gettingstarted.FormatAbsAndFactorial.test()
-  exercises.gettingstarted.TestFib.test()
-  exercises.gettingstarted.AnonymousFunctions.test()
-  exercises.monoids.Monoid.test()
+  import exercises.*
+  gettingstarted.MyModule.test()
+  gettingstarted.FormatAbsAndFactorial.test()
+  gettingstarted.TestFib.test()
+  gettingstarted.AnonymousFunctions.test()
+  //exercises.parallelism.Par.test()
+  monoids.Monoid.test()
+
+  // cats study
+  import cats.*
+  typeclasses.Monoids.test()
+  typeclasses.Functors.test()
+  typeclasses.Monads.test()
+
 end main
+
 
 

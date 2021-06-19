@@ -2,6 +2,8 @@ package exercises.parallelism
 
 import java.util.concurrent._
 import language.implicitConversions
+import scala.util.Success
+import scala.util.Failure
 
 
 object Par:
@@ -51,5 +53,24 @@ object Par:
 
   def map[A,B](pa: Par[A])(f: A => B): Par[B] =
     map2(pa, unit(()))((a,_) => f(a))
+
+  
+  def test(): Unit = {
+    import scala.concurrent.{ Await, Future }
+    import scala.concurrent.ExecutionContext.Implicits.global
+    val future: Future[Int] = Future {
+      for (i <- 0 to 5) do
+        Thread.sleep(1000)
+        println(s"$i: Hello from future")
+      7
+    }
+    future.onComplete {
+      case Success(value) => println(s"Finished, get: $value")
+      case Failure(error) => println(s"An abominable error has occured: ${error.getMessage}")
+    }
+    for (i <- 0 to 5) do
+      Thread.sleep(1000)
+      println(s"$i: Next")
+  }
 
 end Par
