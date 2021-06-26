@@ -47,6 +47,7 @@ import simulacrum.typeclass
   typeclasses.Monads.test()
   typeclasses.Transformers.test()
   typeclasses.free.FreeDataStructures.test()
+  typeclasses.free.CoyonedaTest.test()
 
 end main
 
