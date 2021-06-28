@@ -1,4 +1,4 @@
-package exercises.datastructures
+package data
 
 /*
 sealed trait Tree[+A]

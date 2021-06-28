@@ -3,11 +3,7 @@ package fp
 //import simulacrum.typeclass
 
 
-import cats.Monoid
-import cats.syntax.monoid.*
-import simulacrum.typeclass
-
-/*
+/* 
 - Subtyping
 1. Easily extend data
 2. Pre-binding
@@ -31,17 +27,6 @@ import simulacrum.typeclass
 @main def main: Unit = 
   println("Hello! This the functional world of Scala3.")
 
-  // exercises
-  import exercises.*
-  gettingstarted.MyModule.test()
-  gettingstarted.FormatAbsAndFactorial.test()
-  gettingstarted.TestFib.test()
-  gettingstarted.AnonymousFunctions.test()
-  //exercises.parallelism.Par.test()
-  monoids.Monoid.test()
-
-  // cats study
-  import cats.*
   typeclasses.Monoids.test()
   typeclasses.Functors.test()
   typeclasses.Monads.test()

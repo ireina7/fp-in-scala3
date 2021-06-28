@@ -1,4 +1,4 @@
-package exercises.laziness
+package laziness
 
 
 enum Stream[+A]:

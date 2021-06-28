@@ -1,4 +1,4 @@
-package exercises.state
+package test
 
 
 trait RNG:

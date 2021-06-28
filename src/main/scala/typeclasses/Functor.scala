@@ -1,4 +1,4 @@
-package cats.typeclasses
+package typeclasses
 
 import cats.Functor
 

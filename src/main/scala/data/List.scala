@@ -1,4 +1,4 @@
-package exercises.datastructures
+package data
 
 /*
 sealed trait List[+A] // `List` data type, parameterized on a type, `A`

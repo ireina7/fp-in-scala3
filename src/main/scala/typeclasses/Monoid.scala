@@ -1,4 +1,4 @@
-package cats.typeclasses
+package typeclasses
 
 import cats.Monoid 
 import cats.Semigroup
