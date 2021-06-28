@@ -25,7 +25,7 @@ package fp
 
 
 @main def main: Unit = 
-  println("Hello! This the functional world of Scala3.")
+  println("Hello! This is the functional world of Scala3.")
 
   typeclasses.Monoids.test()
   typeclasses.Functors.test()
