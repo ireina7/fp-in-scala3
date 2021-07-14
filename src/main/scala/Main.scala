@@ -27,13 +27,25 @@ import cats.*
 import cats.syntax.all.*
 import cats.laws.*
 import cats.effect.{
-  IO, IOApp
+  IO, IOApp,
+  ExitCode,
+  Resource,
 }
 
-object HelloWorld extends IOApp.Simple {
+object Application extends IOApp:
 
-  val run = IO.println("Hello, World!")
-}
+  val program: IO[Unit] = for {
+    _ <- IO.println("Enter your name:")
+    n <- IO.readLine
+    _ <- IO.println(s"Hello, $n")
+  } yield ()
+
+  override def run(args: List[String]): IO[ExitCode] = {
+    program *>
+    IO.println("This is the functional world of Scala!")
+      .as(ExitCode.Success)
+  }
+end Application
 
 
 
