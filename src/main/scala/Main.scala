@@ -34,6 +34,10 @@ import cats.effect.{
 
 object Application extends IOApp:
 
+  /**
+   * A simple example of IO monadic composition  
+   * [[program]] should never be called directly by [[unsafeRunSyn]].
+  */
   val program: IO[Unit] = for {
     _ <- IO.println("Enter your name:")
     n <- IO.readLine
