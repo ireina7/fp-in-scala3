@@ -67,7 +67,7 @@ extension [A](s: Stream[A]) {
     foldRight(ss)((x, xs) => cons(x, xs))
 
   def flatMap[B](f: A => Stream[B]): Stream[B] = 
-    foldRight(empty[B])((h, t) => f(h) append t)
+    foldRight(empty[B])((h, t) => f(h).append(t))
 }
 
 

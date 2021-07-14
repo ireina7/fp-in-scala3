@@ -1,12 +1,12 @@
-package typeclasses
+package traits
 
 import cats.Monad
 import cats.catsInstancesForId
 
 object Monads:
-  import cats.syntax.applicative._
-  import cats.syntax.flatMap._
-  import cats.syntax.functor._
+  import cats.syntax.applicative.*
+  import cats.syntax.flatMap.*
+  import cats.syntax.functor.*
 
   def testBasics(): Unit = {
     val opt1 = Monad[Option].pure(3)

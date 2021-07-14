@@ -1,4 +1,4 @@
-package typeclasses
+package traits
 
 import cats.Functor
 
@@ -34,12 +34,12 @@ given [A](using ev: Printable[A]): Printable[Test[A]] with
 object Functors:
 
   def test(): Unit = {
-    import cats.syntax.functor._
+    import cats.syntax.functor.*
 
     val func1: Int => Double = x => x.toDouble
     val func2: Double => Double = y => y * 2
 
-    val mapF = (func1 map func2)(1) 
+    val mapF = (func1.map(func2))(1) 
     val andThenF = (func1 andThen func2)(1)
     assert(mapF == andThenF)
 
@@ -54,7 +54,7 @@ object Functors:
     liftedFunc(Option(1))
 
     val test = Test(5)
-    println(test map (_ * 2))
+    println(test.map(_ * 2))
 
     println(summon[Printable[Test[String]]].format(Test("Testing contra functor")))
 

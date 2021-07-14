@@ -1,7 +1,7 @@
 package data
 
 // hide std library `Option` and `Either`, since we are writing our own in this chapter
-import scala.{ Option => _, Either => _, _ }
+import scala.{ Option as _, Either as _, * }
 
 
 enum Either[+E, +A]:

@@ -23,18 +23,30 @@ package fp
 4. Use subtyping to descibe large pure data or mutable states
 */
 
+import cats.*
+import cats.syntax.all.*
+import cats.laws.*
+import cats.effect.{
+  IO, IOApp
+}
 
-@main def main: Unit = 
-  println("Hello! This is the functional world of Scala3.")
+object HelloWorld extends IOApp.Simple {
 
-  typeclasses.Monoids.test()
-  typeclasses.Functors.test()
-  typeclasses.Monads.test()
-  typeclasses.Transformers.test()
-  typeclasses.free.FreeDataStructures.test()
-  typeclasses.free.CoyonedaTest.test()
-
-end main
+  val run = IO.println("Hello, World!")
+}
 
 
+
+
+
+
+def tests(): Unit = {
+
+  traits.Monoids.test()
+  traits.Functors.test()
+  traits.Monads.test()
+  traits.Transformers.test()
+  traits.free.FreeDataStructures.test()
+  traits.free.CoyonedaTest.test()
+}
 

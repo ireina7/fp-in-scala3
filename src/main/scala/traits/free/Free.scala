@@ -1,4 +1,4 @@
-package typeclasses.free
+package traits.free
 
 import cats.Functor
 

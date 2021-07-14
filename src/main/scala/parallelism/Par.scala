@@ -1,6 +1,6 @@
 package parallelism
 
-import java.util.concurrent._
+import java.util.concurrent.*
 import language.implicitConversions
 import scala.util.Success
 import scala.util.Failure

@@ -1,4 +1,4 @@
-package typeclasses
+package traits
 
 
 
@@ -6,7 +6,7 @@ package typeclasses
 object Monoids:
   import cats.Monoid 
   import cats.Semigroup
-  import cats.syntax.semigroup._
+  import cats.syntax.semigroup.*
 
   def test() = {
     //import cats.instances.string._ // for Monoid 

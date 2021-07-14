@@ -1,6 +1,6 @@
-package typeclasses
+package traits
 
-import cats.syntax.applicative._ // for pure
+import cats.syntax.applicative.* // for pure
 import cats.Monad
 import cats.data.OptionT
 //import javax.xml.transform.Transformer
