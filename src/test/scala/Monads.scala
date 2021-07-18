@@ -102,6 +102,25 @@ object MonadSpec extends Properties("Monad") {
     checkStack && calcCheck
   }
 
+  property("any") = forAll { (i: Int) =>
+    given List[Int] = 0 :: 1 :: 2 :: Nil
+    def test[A: List](a: A): List[A] = 
+      (0 until summon[List[A]].length).map(_ => a).toList
+    
+    println(test(1))
+
+    type F[B] = Int => B
+    val f: F[String] = _.toString
+    def from[M[_], A]: A => M[A] = ???
+
+    enum Option[+A] {
+      case None
+      case Some(a: A)
+    }
+
+    true
+  }
+
 }
 
 

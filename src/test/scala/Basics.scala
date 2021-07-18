@@ -46,15 +46,3 @@ object IntSpec extends Properties("Int") {
 
 }
 
-
-
-object Macros {
-  import cats.*
-  import cats.syntax.all.*
-  import scala.quoted.*
-
-  inline def generate[T: Monoid: Arbitrary] = forAll { (a: T, b: T, c: T) => 
-    ((a |+| b) |+| c) == (a |+| (b |+| c))
-  }
-}
-

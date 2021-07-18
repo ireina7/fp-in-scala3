@@ -7,6 +7,12 @@ trait Monoid[A]:
   extension (a: A) def |+| (b: A) = op(a, b)
 
 
+given Monoid[String] with {
+  def op(a: String, b: String) = a + b
+  def zero = ""
+}
+
+
 object Monoid:
 
   val stringMonoid = new Monoid[String]:
@@ -46,6 +52,8 @@ object Monoid:
   given boolOrMonoid: Monoid[Boolean] = booleanOr
   given boolAndMonoid: Monoid[Boolean] = booleanAnd
   given [A]: Monoid[Option[A]] = optionMonoid
+
+
 
   def usingMonoid[A](a: A, b: A)(using Monoid[A]) = 
     a |+| b
